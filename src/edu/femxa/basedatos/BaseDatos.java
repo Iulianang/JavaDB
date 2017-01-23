@@ -31,9 +31,9 @@ public class BaseDatos {
 		String nombre1 = null;
 		int id1 = 0;
 		int salario1 = 0;
-		int departamento1 = 0;
+		int departamento_id = 0;
 		String nDepartamento = null;
-		new Consultas();
+		Empleado empleados = null;
 		
 		/*try
 		{
@@ -73,15 +73,14 @@ public class BaseDatos {
 			conn = DriverManager.getConnection ("jdbc:oracle:thin:@localhost:1521:xe", "HR", "paswword");
   	        stmt = conn.createStatement();
   	        rset = stmt.executeQuery(Consultas.CONSULTA_EMPLEADOS_SALARIO_ASC);
-  	      
   	        while (rset.next())
 			{
 				nombre1 = rset.getString("FIRST_NAME");
 				id1 = rset.getInt(2);
 				salario1 = rset.getInt("SALARY");
-				departamento1 = rset.getShort("DEPARTMENT_ID");
+				departamento_id = rset.getShort("DEPARTMENT_ID");
 				nDepartamento = rset.getNString(5);
-				Empleado empleados = new Empleado(id1, nombre1, salario1, departamento1, nDepartamento);
+				empleados = new Empleado(id1, nombre1, salario1, departamento_id, nDepartamento);
 				lista_empleados.add(empleados);
 		
 			}
