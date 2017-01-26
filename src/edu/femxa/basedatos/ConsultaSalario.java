@@ -23,7 +23,6 @@ public class ConsultaSalario {
 			Savepoint savepoint = null;
 			try
 			{
-				
 				Class.forName("oracle.jdbc.driver.OracleDriver"); 
 				conn = DriverManager.getConnection ("jdbc:oracle:thin:@localhost:1521:xe", "HR", "paswword");
 				conn.setAutoCommit(false); //normalmente esta a true y se hace commit siempre al cerrar la conexion de la db, pero se puede poner a false
@@ -35,7 +34,7 @@ public class ConsultaSalario {
 	  	        //rest = stmt.executeQuerry("select department_id from departments where department_name='administration');
 	  	        //rset2 = stmt.executeUpdate("UPDATE EMPLOYEES SALARY SET SALARY=round(SALARY*1.2) WHERE DEPARTMENTS_ID=10");
 	  	        //UPDATE EMPLOYEES SALARY SET SALARY=round(SALARY*1.2) WHERE DEPARTMENT_ID=10 OR SALARY.DEPARTMENT_ID=60; CONSULTA ANIDADA
-	  	        ConsultaHistorico(conn);
+	  	        consultaHistorico(conn);
 	  	        while (rset.next())
 				{	
 //					salario1 = rset.getInt("SALARY");
@@ -66,7 +65,7 @@ public class ConsultaSalario {
 			
 		}
 		
-		public static void ConsultaHistorico (Connection conn) throws Exception
+		public static void consultaHistorico (Connection conn) throws Exception
 		{
 			Connection conn2 = null;
 			ResultSet rset = null;

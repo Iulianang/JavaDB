@@ -11,4 +11,5 @@ public class Consultas {
 //			+ "DEPARTMENTS WHERE department_name = "
 //			+ "'Administration' or "
 //			+ "department_name = 'IT')";
+	public static final String CONSULTA_EMPLEADOS = "SELECT * FROM EMPLOYEES e, DEPARTMENTS d" + " WHERE e.DEPARTMENT_ID = d.DEPARTMENT_ID "+ "AND e.DEPARTMENT_ID = D.DEPARTMENT_ID ";
 }
