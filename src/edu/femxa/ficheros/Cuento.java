@@ -9,12 +9,12 @@ public class Cuento {
 	public static void main(String[] args) throws IOException {
 
 		System.out.println(args[0]);
-		String hola = args[0];
+		String start = args[0];
 		Properties fichero_propiedades = null;
 		fichero_propiedades = new Properties();
 		FileReader fr = null;
 
-		switch (hola) {
+		switch (start) {
 		case "it":
 		fr = new FileReader("story_it.properties");
 		break;
