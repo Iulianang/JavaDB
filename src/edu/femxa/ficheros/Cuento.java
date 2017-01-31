@@ -1,48 +1,62 @@
 package edu.femxa.ficheros;
 
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Properties;
 
 public class Cuento {
 	
-	public static void main(String[] args) throws IOException {
+	
+	
+	 public static void main(String[] args) throws IOException {
 
-		System.out.println(args[0]);
-		String start = args[0];
-		Properties fichero_propiedades = null;
-		fichero_propiedades = new Properties();
-		FileReader fr = null;
+		 System.out.println(args[0]);
+		 String idioma = args[0];
+		 Properties fichero_propiedades = null;
+		 fichero_propiedades = new Properties();
+		 FileReader fr = null;
+		 FileWriter fw = null;
+		 BufferedWriter bw = null;
+		 
 
-		switch (start) {
-		case "it":
-		fr = new FileReader("story_it.properties");
-		break;
-		case "en":
-		fr = new FileReader("story_en.properties");
-		break;
-		case "es":
-		fr = new FileReader("story_es.properties");
-		break;
-		default:
-		System.out.println("dato no válido");
-		break;
-		}
+		 switch (idioma) {
+		 case "it":
+		 fr = new FileReader("story_it.properties");
+		 fw = new FileWriter("story.txt");
+		 break;
+		 case "en":
+		 fr = new FileReader("story_en.properties");
+		 fw = new FileWriter("story.txt");
+		 break;
+		 case "es":
+		 fr = new FileReader("story_es.properties");
+		 fw = new FileWriter("cuento.txt");
 
-		fichero_propiedades.load(fr);
+		 break;
+		 default:
+		 System.out.println("dato no válido");
+		 break;
+		 }
 
-		fichero_propiedades.load(fr);
+		 fichero_propiedades.load(fr);
 
-		String inicio = fichero_propiedades.getProperty("start");
+		 fichero_propiedades.load(fr);
 
-		String cuerpo = fichero_propiedades.getProperty("body");
+		 bw = new BufferedWriter(fw);
 
-		String desenlace = fichero_propiedades.getProperty("end");
+		 bw.write(fichero_propiedades.getProperty("start"));
+		 bw.newLine();
+		 bw.write(fichero_propiedades.getProperty("body"));
+		 bw.newLine();
+		 bw.write(fichero_propiedades.getProperty("end"));
 
-		System.out.println(inicio);
-		System.out.println(cuerpo);
-		System.out.println(desenlace);
-}
+		 fr.close();
+		 bw.close();
+		 fw.close();
+		 }
+		 
 
 
 }
