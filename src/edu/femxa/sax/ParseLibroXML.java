@@ -8,9 +8,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import com.sun.xml.internal.fastinfoset.util.LocalNameQualifiedNamesMap;
 
-import sun.util.resources.cldr.LocaleNames;
 
 
 public class ParseLibroXML extends DefaultHandler{
