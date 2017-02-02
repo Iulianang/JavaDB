@@ -2,9 +2,9 @@ package edu.femxa.json;
 
 import java.util.Date;
 
-public class Recado {
-
-
+public class Recado implements Comparable<Recado>{
+	
+	private int n_recado;
 	private Date fecha_hora;
 	private String nombre_cliente;
 	private String telefono;
@@ -13,12 +13,20 @@ public class Recado {
 	private String descripcion;
 	private Date fecha_hora_maxima;
 	
-	
-	public Recado ()
-	{
-		//TODO
+	public int compareTo(Recado r){
+		int resultado = 0;
+		int telefono1 = Integer.parseInt(this.telefono);
+		int telefono2 = Integer.parseInt(r.telefono);
+		
+		if(telefono1 > telefono2)
+		{
+			resultado = 1;
+		}else if(telefono1<telefono2)
+		{
+			resultado = -1;
+		}
+		return resultado;
 	}
-	
 	
 	public Recado(Date fecha_hora, String nombre_cliente, String telefono, String direccion_recogida,
 			String direccion_entrega, String descripcion, Date fecha_hora_maxima) {
@@ -31,6 +39,7 @@ public class Recado {
 		this.descripcion = descripcion;
 		this.fecha_hora_maxima = fecha_hora_maxima;
 	}
+	
 	public Date getFecha_hora() {
 		return fecha_hora;
 	}
@@ -73,9 +82,13 @@ public class Recado {
 	public void setFecha_hora_maxima(Date fecha_hora_maxima) {
 		this.fecha_hora_maxima = fecha_hora_maxima;
 	}
-	
-	
-	
-	
 
+	public int getN_recado() {
+		return n_recado;
+	}
+
+	public void setN_recado(int n_recado) {
+		this.n_recado = n_recado;
+	}
+	
 }
